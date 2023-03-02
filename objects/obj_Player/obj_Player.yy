@@ -5,6 +5,7 @@
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"obj_Spike","path":"objects/obj_Spike/obj_Spike.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -29,12 +30,9 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_PlayerIdle_strip4",
-    "path": "sprites/spr_PlayerIdle_strip4/spr_PlayerIdle_strip4.yy",
+    "name": "spr_PlayerIdle_strip2",
+    "path": "sprites/spr_PlayerIdle_strip2/spr_PlayerIdle_strip2.yy",
   },
-  "spriteMaskId": {
-    "name": "spr_PlayerIdle_strip4",
-    "path": "sprites/spr_PlayerIdle_strip4/spr_PlayerIdle_strip4.yy",
-  },
+  "spriteMaskId": null,
   "visible": true,
 }
