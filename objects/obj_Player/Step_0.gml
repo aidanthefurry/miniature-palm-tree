@@ -1,10 +1,11 @@
 #region Input
 
-var jump = gamepad_button_check_pressed(0, gp_face1);
-var jump_held = gamepad_button_check(0, gp_face1);
-var right = gamepad_button_check(0, gp_padr);
-var left = gamepad_button_check(0, gp_padl);
-var x_dir = right - left;
+jump = gamepad_button_check_pressed(0, gp_face1);
+jump_held = gamepad_button_check(0, gp_face1);
+right = gamepad_button_check(0, gp_padr);
+left = gamepad_button_check(0, gp_padl);
+
+x_dir = right - left;
 
 var Grounded = place_meeting(x, y + 1, obj_Wall);
 
@@ -27,7 +28,7 @@ if (Grounded) {
 #endregion Animation
 #region Jump
 
-y_speed += .75;
+y_speed += grav;
 
 //Landing
 if(can_hit_ground && Grounded){
@@ -115,6 +116,33 @@ if (place_meeting(x, y + y_speed, obj_Wall)) {
 
 y += y_speed;
 
+if (place_meeting(x, y, obj_Projectile)){
+	kill_the_player();
+}
+
+if (place_meeting(x, y, obj_Laser)){
+	if(obj_Laser.isActive){
+		kill_the_player();
+	}
+}
+
+if (place_meeting(x, y, obj_AcidCollider)){
+	kill_the_player();  
+}
+
+
+if (place_meeting(x, y, obj_Spike)){
+	kill_the_player();
+}
+
+if (place_meeting(x, y, obj_PatrolEnemy)){
+	kill_the_player();
+}
+
+if (place_meeting(x, y, obj_FlyingEnemy)){
+	kill_the_player();
+}
+
 #endregion Collison
 #region Vibration
 
@@ -122,18 +150,15 @@ gamepad_set_vibration(0, gp_vibration_amount, gp_vibration_amount);
 gp_vibration_amount *= .9;
 
 #endregion
-
-if(gamepad_button_check_pressed(0, gp_face1)){
-	part_particles_create(global.jumpParticle, x, y, global.jumpParticle, 30);
-}
-
-if (gamepad_button_check_pressed(0, gp_face3)){
-	room_restart();
-}
-
 #region PowerUps
 
-global.battery -= delta_time / 1000000 * 5;
+if(x_speed != 0){
+	global.battery -= delta_time / 1000000 * 5;
+}
+
+if(jump){
+	global.battery -= 2.5;
+}
 
 if(place_meeting(obj_Player.x, obj_Player.y, obj_BatteryLife)){
 	with(instance_nearest(x, y, obj_BatteryLife)){
@@ -145,28 +170,25 @@ if(place_meeting(obj_Player.x, obj_Player.y, obj_BatteryLife)){
 if(place_meeting(obj_Player.x, obj_Player.y, obj_Fuel)){
 	with(instance_nearest(x, y, obj_Fuel)){
 		instance_destroy();
-		global.battery = 100;
 	}
 }
 
 if(place_meeting(obj_Player.x, obj_Player.y, obj_SpeedBoost)){
 	with(instance_nearest(x, y, obj_SpeedBoost)){
 		instance_destroy();
-		global.battery = 100;
 	}
 }
 
 if(place_meeting(obj_Player.x, obj_Player.y, obj_FlooxTape)){
 	with(instance_nearest(x, y, obj_FlooxTape)){
 		instance_destroy();
-		global.battery = 100;
+		//Let you go underwater
 	}
 }
 
 if(place_meeting(obj_Player.x, obj_Player.y, obj_Invicabilty)){
 	with(instance_nearest(x, y, obj_Invicabilty)){
 		instance_destroy();
-		global.battery = 100;
 	}
 }
 

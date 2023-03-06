@@ -3,9 +3,9 @@
   "resourceVersion": "1.0",
   "name": "spr_PlayerIdle_strip2",
   "bbox_bottom": 31,
-  "bbox_left": 10,
-  "bbox_right": 21,
-  "bbox_top": 15,
+  "bbox_left": 11,
+  "bbox_right": 20,
+  "bbox_top": 14,
   "bboxMode": 2,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Player",
+    "path": "folders/Sprites/Player.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

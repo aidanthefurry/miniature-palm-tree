@@ -3,9 +3,9 @@
   "resourceVersion": "1.0",
   "name": "spr_Spike",
   "bbox_bottom": 31,
-  "bbox_left": 6,
-  "bbox_right": 25,
-  "bbox_top": 14,
+  "bbox_left": 1,
+  "bbox_right": 30,
+  "bbox_top": 13,
   "bboxMode": 2,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "EnimesAndTraps",
+    "path": "folders/Sprites/EnimesAndTraps.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

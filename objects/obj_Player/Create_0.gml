@@ -1,7 +1,8 @@
 spd = 4.57;
-jump_power = 12.8;
+jump_power = 13;
 x_speed = 0;
 y_speed = 0;
+grav = .75;
 
 gp_vibration_amount = 0;
 
@@ -16,3 +17,10 @@ coyote_max = 6;
 jumped = true;
 
 global.battery = 100;
+
+sword = instance_create_layer(x, y, "Instances", obj_Sword);
+sword.parent = id; // make the sword object a child of the player object
+
+function kill_the_player(){
+	room_restart();
+}
