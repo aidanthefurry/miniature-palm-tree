@@ -22,7 +22,7 @@ if (attack && image_index >= 5)
 }
 
 // check for collision with enemies
-if (place_meeting(x, y, obj_PatrolEnemy))
+if (place_meeting(x, y, obj_PatrolEnemy) && attack)
 {
 	with(instance_nearest(x, y, obj_PatrolEnemy)){
 		instance_destroy();
@@ -31,7 +31,7 @@ if (place_meeting(x, y, obj_PatrolEnemy))
 }
 
 // check for collision with enemies
-if (place_meeting(x, y, obj_FlyingEnemy))
+if (place_meeting(x, y, obj_FlyingEnemy) && attack)
 {
 	with(instance_nearest(x, y, obj_FlyingEnemy)){
 		instance_destroy();
